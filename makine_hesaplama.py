@@ -23,8 +23,8 @@ def main():
     voltage = float(input("Gerilim (Volt): "))
     power_w = float(input("Güç (Watt): "))
     rpm = float(input("Devir (rpm): "))
-    efficiency = float(input("Verim (örn. 0.9): "))
-    safety_factor = float(input("Güvenlik faktörü (örn. 1.25): "))
+    efficiency = float(input("Verim: "))
+    safety_factor = float(input("Güvenlik faktörü: "))
 
     # Tork hesabı
     torque = torque_from_power(power_w, rpm)
@@ -33,7 +33,7 @@ def main():
     if motor_type == "DC":
         current = current_dc(power_w, voltage, efficiency)
     else:
-        pf = float(input("Güç katsayısı (örn. 0.9): "))
+        pf = float(input("Güç katsayısı: "))
         current = current_3phase_ac(power_w, voltage, pf, efficiency)
 
     # Gerekli motor gücü
